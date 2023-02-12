@@ -1,11 +1,8 @@
-<!doctype html>
-<html>
-  <head>
-  </head>
-  <body>
-
-	<p> Sometimes, you may lost yourself.</p>
-  <a href="{{ config.base_url }}">&#8592;Go Home</a>
-
-  </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<backnav>
+  <p><code>404 Not Found</code></p>
+  <p>Not all those who wander are lost.</p>
+  <a href="{{ config.base_url }}">&#8592; Go Home</a>
+</backnav>
+{% endblock content %}

@@ -39,7 +39,7 @@
     --border: #666;
     --accent: #ffb300;
     --accent-light: #ffecb3;
-    --code: #f06292;
+    --code: #cc7833;
     --preformatted: #ccc;
     --disabled: #111;
   }
@@ -83,6 +83,13 @@ section {
   width:500px;
   float:right;
   padding-bottom:50px;
+}
+
+backnav {
+  display: block;
+  margin:0 auto;
+  text-align: left;
+  width: 800px;
 }
 
 /* Make the header bg full width, but the content inline with body */
@@ -485,6 +492,9 @@ kbd,
 samp {
   font-size: 1.075rem;
   font-family: var(--mono-font);
+}
+
+p code {
   color: var(--code);
 }
 
