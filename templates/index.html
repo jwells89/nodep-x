@@ -1,43 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-  <div class="wrapper">
-    <header>
-      <h3>{{ config.title }}</h3>
+<div class="wrapper">
+  <header>
+    <h3>{{ config.title }}</h3>
 
-      <p>{{ config.description }}</p>
-
-      <br>
-      <socialbar>
-        {%- if config.extra.douban -%}
-        <a href=" {{ config.extra.douban }} " title="Douban"><img alt="douban" height="32" width="32" src="{{ config.base_url }}/imgs/douban.svg"></a>
-        {%- endif -%}
-        {%- if config.extra.github -%}
-        <a href=" {{ config.extra.github }} " title="GitHub" id="github" class="socialbutton"></a>
-        {%- endif -%}
-        {%- if config.extra.mastodon -%}
-        <a href=" {{ config.extra.mastodon }}" title="Mastodon" id="mastodon" class="socialbutton"></a>
-        {%- endif -%}
-        {%- if config.extra.mail -%}
-        <a href="mailto:{{ config.extra.mail }}" title="Email" id="mail" class="socialbutton"></a>
-        {%- endif -%}
-        {%- if config.generate_feed -%}
-        <a href="atom.xml" title="RSS" id="rss" class="socialbutton"></a>
-        {%- endif -%}
-      </socialbar>
-
-    </header>
-
-    <section>
-
-          <br>
-        {% for page in section.pages %}
-          {{ page.date | date(format="%Y-%m-%d") }}<br>
-          <a href="{{ page.permalink | safe }}">{{ page.title }}</a><br>
-          <br>
+    <p>{{ config.description }}</p>
+    <nav>
+      <ul role="list">
+        {% for menu_link in config.extra.menu_links %}
+        {% set link_url = menu_link.url | replace(from="$BASE_URL", to=config.base_url) %}
+        <li><a {% if current_url and current_url == link_url %}class="active"{% endif %} href="{{ link_url }}">{{menu_link.name}}</a></li>
         {% endfor %}
+      </ul>
+    </nav>
+    <br>
+    <socialbar>
+      {%- if config.extra.douban -%}
+      <a href=" {{ config.extra.douban }} " title="Douban"><img alt="douban" height="32" width="32" src="{{ config.base_url }}/imgs/douban.svg"></a>
+      {%- endif -%}
+      {%- if config.extra.github -%}
+      <a href=" {{ config.extra.github }} " title="GitHub" id="github" class="socialbutton"></a>
+      {%- endif -%}
+      {%- if config.extra.mastodon -%}
+      <a href=" {{ config.extra.mastodon }}" title="Mastodon" id="mastodon" class="socialbutton"></a>
+      {%- endif -%}
+      {%- if config.extra.mail -%}
+      <a href="mailto:{{ config.extra.mail }}" title="Email" id="mail" class="socialbutton"></a>
+      {%- endif -%}
+      {%- if config.generate_feed -%}
+      <a href="atom.xml" title="RSS" id="rss" class="socialbutton"></a>
+      {%- endif -%}
+    </socialbar>
 
-    </section>
-  </div>
+  </header>
+
+  <section>
+
+    <br>
+    {% for page in section.pages %}
+    {{ page.date | date(format="%Y-%m-%d") }}<br>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a><br>
+    <br>
+    {% endfor %}
+
+  </section>
+</div>
 
 {% endblock content %}
