@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="wrapper">
+  <header>
+    <pagebacknav>
+      <a href="{{ config.base_url }}">&#8592; Home</a>
+    </pagebacknav>
+    <h3>{{ section.title }}</h3>
+
+    <p>{{ section.description }}</p>
+  </header>
+
+  <section>
+
+    <br>
+    {% for page in section.pages %}
+    {{ page.date | date(format="%Y-%m-%d") }}<br>
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a><br>
+    <br>
+    {% endfor %}
+
+  </section>
+</div>
+
+{% endblock content %}
