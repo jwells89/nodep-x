@@ -25,6 +25,10 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="{{ config.title | safe }}" />
 
+  {% if page.extra.og_image | safe %}
+    <meta property="og:image" content="{{ config.base_url }}/articleimages/{{ page.extra.og_image }}" />
+  {% endif %}
+
   {% block meta_content %}
     <meta property="og:title" content="{{ config.title }}" />
     {% if config.description %}
