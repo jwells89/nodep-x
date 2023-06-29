@@ -24,13 +24,13 @@
   {% endif %}
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="{{ config.title | safe }}" />
-  {% if config.description %}
+
+  {% block meta_content %}
+    <meta property="og:title" content="{{ config.title }}" />
+    {% if config.description %}
     <meta name="description" content="{{ config.description | safe }}" />
     <meta property="og:description" content="{{ config.description | safe }}" />
   {% endif %}
-
-  {% block meta_content %}
-    <meta property="og:title" content="config.title" />
   {% endblock meta_content %}
 
   {% if config.extra.favicon %}
