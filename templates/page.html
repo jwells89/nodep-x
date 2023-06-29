@@ -4,8 +4,8 @@
     <meta property="og:title" content="{{ config.title }} :: {{ page.title }}" />
   {% endif %}
   {% if page.summary %}
-    <meta name="description" content="{{ page.summary | safe }}" />
-    <meta property="og:description" content="{{ page.summary | safe }}" />
+    <meta name="description" content="{{ page.description | safe }}" />
+    <meta property="og:description" content="{{ page.description | safe }}" />
   {% endif %}
 {% endblock meta_content %}
 {% block content %}
