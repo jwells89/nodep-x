@@ -1,4 +1,13 @@
 {% extends "base.html" %}
+{% block meta_content %}
+  {% if page.title %}
+    <meta property="og:title" content="{{ config.title }} :: {{ page.title }}" />
+  {% endif %}
+  {% if page.description %}
+    <meta name="description" content="{{ page.description | safe }}" />
+    <meta property="og:description" content="{{ page.description | safe }}" />
+  {% endif %}
+{% endblock meta_content %}
 {% block content %}
     <backnav>
       <a href="{{ config.base_url }}">&#8592; Home</a>
