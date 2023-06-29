@@ -18,7 +18,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   {% if current_path %}
-    <meta property="og:url" content="{{config.base_url | safe}}/{{current_path | safe}}" />
+    <meta property="og:url" content="{{config.base_url | safe}}{{current_path | safe}}" />
   {% else %}
     <meta property="og:url" content="{{config.base_url | safe}}" />
   {% endif %}
