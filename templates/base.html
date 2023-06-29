@@ -23,7 +23,11 @@
     <meta property="og:url" content="{{config.base_url | safe}}" />
   {% endif %}
   <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="config.title" />
+  <meta property="og:site_name" content="{{ config.title | safe }}" />
+  {% if config.description %}
+    <meta name="description" content="{{ config.description | safe }}" />
+    <meta property="og:description" content="{{ config.description | safe }}" />
+  {% endif %}
 
   {% block meta_content %}
     <meta property="og:title" content="config.title" />
